@@ -14,7 +14,7 @@ fi
 
 if [ ! -z "$MAGE_ROOT" ]; then
 
-    LINE="$MAGE_CRON_EXPR $MAGE_CRON_USER $(which sh) $MAGE_ROOT/cron.sh >> $MAGE_ROOT/var/log/cron.log 2>&1"
+    LINE="$MAGE_CRON_EXPR $MAGE_CRON_USER $(which sh) $MAGE_ROOT/cron.sh 2>&1 | logger -p local0.notice -t magento_cron"
 
     echo 'SHELL=/bin/bash' > /etc/cron.d/magento-cron
     echo 'PATH=/sbin:/bin:/usr/sbin:/usr/bin' >> /etc/cron.d/magento-cron

@@ -47,6 +47,7 @@ g++ make gcc gcc-c++ sqlite-devel \
 && sed -i 's/listen = 127.0.0.1:9000/listen = 0.0.0.0:9000/g' /etc/php-fpm.d/www.conf \
 && sed -i 's/;error_log = \/var\/log\/php-fpm\/error.log/error_log = syslog/g' /etc/php-fpm.conf \
 && sed -i 's/;error_log = syslog/error_log = syslog/g' /etc/php.ini \
+&& sed -i 's/memory_limit = 128M/memory_limit = 512M/g' /etc/php.ini \
 && sed -i 's/listen.allowed_clients = 127.0.0.1/;listen.allowed_clients = 127.0.0.1/g' /etc/php-fpm.d/www.conf \
 && sed -i 's/;php_flag\[display_errors\] = off/php_flag\[display_errors\] = on/g' /etc/php-fpm.d/www.conf \
 && sed -i 's/;php_admin_flag\[log_errors\] = on/php_admin_flag\[log_errors\] = on/g' /etc/php-fpm.d/www.conf \
